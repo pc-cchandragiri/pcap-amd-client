@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   
   users = [];
   fetchUsers = function() {
-     this.http.get("http://pcap-amd.herokuapp.com/users").subscribe(
+     this.http.get("https://pcap-amd.herokuapp.com/users").subscribe(
      	(res: Response) => {
      	    this.users = res.json();
      	}
@@ -25,7 +25,7 @@ export class UserComponent implements OnInit {
   status:""
   };
   fetchAssociate = function() {
-     this.http.get("http://pcap-amd.herokuapp.com/salesAssociate/9970011801").subscribe(
+     this.http.get("https://pcap-amd.herokuapp.com/salesAssociate/9970011801").subscribe(
       (res: Response) => {
           this.associate = res.json();
       }
