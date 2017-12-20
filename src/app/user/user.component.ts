@@ -17,10 +17,20 @@ export class UserComponent implements OnInit {
      	    this.users = res.json();
      	}
      )
-  }
+  };
+
+  associate = {};
+  fetchAssociate = function() {
+     this.http.get("http://pcap-amd.herokuapp.com/salesAssociate/9970011801").subscribe(
+      (res: Response) => {
+          this.associate = res.json();
+      }
+     )
+  };
 
   ngOnInit() {
       this.fetchUsers();
+      this.fetchAssociate();
   }
 
 }
