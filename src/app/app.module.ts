@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
 
 const appRutes = [
   {
-  path : "users",
+  path : "",
   component : UserComponent
   }
 ];

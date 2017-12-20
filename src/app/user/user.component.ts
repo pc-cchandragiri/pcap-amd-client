@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   
   users = [];
   fetchUsers = function() {
-     this.http.get("https://pcap-amd.herokuapp.com/users").subscribe(
+     this.http.get("http://pcap-amd.herokuapp.com/users").subscribe(
      	(res: Response) => {
      	    this.users = res.json();
      	}
