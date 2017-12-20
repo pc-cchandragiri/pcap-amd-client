@@ -1,27 +1,58 @@
 <div>
 
   <div ng-if="!associate">
-    <h3>Sales Associate: {{associate.firstName}} {{associate.lastName}} Status {{associate.status}}</h3>
+    <h3>Sales Associate: {{associate.firstName}} {{associate.lastName}}</h3>
   </div>
-  
 
-  <br><br>
-  <h3>Calling Queue</h3>
-  <table class="table table-striped table-bordered">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Status</th>
-  </tr>
-  <tr *ngFor = "let user of users">
-    <td>{{user.firstName}}</td>
-    <td>{{user.lastName}}</td>
-    <td>{{user.email}}</td>
-    <td>{{user.phoneNumber}}</td>
-    <td>{{user.phone}}</td>
-  </tr>
-</table>
+  <div ng-if="!toggleStatus">
+    <h4>Status: {{toggleStatus.status}}</h4>
+  </div> 
+  <div class="btn-group" id="toggle_event_editing">
+      <button type="button" class="btn btn-info locked_active">OFF</button>
+      <button type="button" class="btn btn-default unlocked_inactive">ON</button>
+  </div>
+
+  <div id="callingQueue">
+      <br><br>
+      <h3>Calling Queue</h3>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th> 
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+        </tr>
+        <tr *ngFor = "let user of usersInQueue">
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phoneNumber}}</td>
+          <td>{{user.status}}</td>
+        </tr>
+      </table>
+  </div>
+
+
+  <div id="callingQueue">
+      <br><br>
+      <h3>All Users</h3>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th> 
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+        </tr>
+        <tr *ngFor = "let user of users">
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phoneNumber}}</td>
+          <td>{{user.status}}</td>
+        </tr>
+      </table>
+  </div>
 </div>
 
