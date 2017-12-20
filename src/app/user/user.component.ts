@@ -19,7 +19,11 @@ export class UserComponent implements OnInit {
      )
   };
 
-  associate = {};
+  associate = {
+  firstName:"",
+  lastName:"",
+  status:""
+  };
   fetchAssociate = function() {
      this.http.get("http://pcap-amd.herokuapp.com/salesAssociate/9970011801").subscribe(
       (res: Response) => {
