@@ -15,9 +15,9 @@ export class UserComponent implements OnInit {
   usersInQueue = [];
   fetchUsersInQueue = function() {
      this.http.get("https://pcap-amd.herokuapp.com/users/userQueue").subscribe(
-     	(res: Response) => {
-     	    this.usersInQueue = res.json();
-     	}
+      (res: Response) => {
+          this.usersInQueue = res.json();
+      }
      )
   };
 
@@ -44,13 +44,13 @@ export class UserComponent implements OnInit {
   };
 
   toggleStatus = {
-    status:'Offline'
+    status:"Fetching..."
   };
 
   getToggleStatus = function() {
-     this.http.ger("https://pcap-amd.herokuapp.com/salesAssociate/9970011801/toggle").subscribe(
+     this.http.get("https://pcap-amd.herokuapp.com/salesAssociate/9970011801/toggle").subscribe(
       (res: Response) => {
-          this.toggleStatus = res.json();
+          this.toggleStatus.status = res["_body"];
       }
      )
   };
@@ -58,7 +58,7 @@ export class UserComponent implements OnInit {
   updateToggleStatus = function() {
      this.http.put("https://pcap-amd.herokuapp.com/salesAssociate/9970011801/toggle").subscribe(
       (res: Response) => {
-          this.toggleStatus = res.json();
+          this.toggleStatus = res["_body"];
       }
      )
   };
@@ -68,23 +68,13 @@ export class UserComponent implements OnInit {
       this.fetchUsers();
       this.fetchAssociate();
       this.getToggleStatus();
-
       var userComponent = this;
       
-      $('#toggle_event_editing button').click(function(){
-      
-      if($(this).hasClass('locked_active') || $(this).hasClass('unlocked_inactive')){
-            userComponent.updateToggleStatus();
-      } else{
-            userComponent.updateToggleStatus();
-      }
-      
-      /* reverse locking status */
-      $('#toggle_event_editing button').eq(0).toggleClass('locked_inactive locked_active btn-default btn-info');
-      $('#toggle_event_editing button').eq(1).toggleClass('unlocked_inactive unlocked_active btn-info btn-default');
-    });
+
+      $('#toggle').click(function(){
+          userComponent.updateToggleStatus();
+      });
 
 
-  }
-
+    };
 }
