@@ -19,6 +19,7 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Status</th>
+          <th>Machine Detected</th>
         </tr>
         <tr *ngFor = "let user of deQueuedUsers">
           <td>{{user.firstName}}</td>
@@ -26,6 +27,7 @@
           <td>{{user.email}}</td>
           <td>{{user.phoneNumber}}</td>
           <td>{{user.status}}</td>
+          <td >{{user.amDetected}}</td>
         </tr>
       </table>
   </div>
