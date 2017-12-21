@@ -8,9 +8,10 @@
     Status: <button id="toggle" type="button" class="btn btn-primary btn-sm"> {{toggleStatus.status}} </button>
   </div> 
 
+
   <div id="callingQueue">
       <br><br>
-      <h3>Calling Queue</h3>
+      <h3>Processed Users</h3>
       <table class="table table-striped table-bordered">
         <tr>
           <th>Firstname</th>
@@ -19,7 +20,7 @@
           <th>Phone</th>
           <th>Status</th>
         </tr>
-        <tr *ngFor = "let user of usersInQueue">
+        <tr *ngFor = "let user of deQueuedUsers">
           <td>{{user.firstName}}</td>
           <td>{{user.lastName}}</td>
           <td>{{user.email}}</td>
@@ -29,10 +30,9 @@
       </table>
   </div>
 
-
   <div id="callingQueue">
       <br><br>
-      <h3>All Users</h3>
+      <h3>Users in Queue</h3>
       <table class="table table-striped table-bordered">
         <tr>
           <th>Firstname</th>
@@ -41,7 +41,7 @@
           <th>Phone</th>
           <th>Status</th>
         </tr>
-        <tr *ngFor = "let user of users">
+        <tr *ngFor = "let user of usersInQueue">
           <td>{{user.firstName}}</td>
           <td>{{user.lastName}}</td>
           <td>{{user.email}}</td>

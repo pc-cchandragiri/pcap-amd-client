@@ -21,11 +21,11 @@ export class UserComponent implements OnInit {
      )
   };
 
-  users = [];
+  deQueuedUsers = [];
   fetchUsers = function() {
-     this.http.get("https://pcap-amd.herokuapp.com/users").subscribe(
+     this.http.get("https://pcap-amd.herokuapp.com/users/dequedUsers").subscribe(
       (res: Response) => {
-          this.users = res.json();
+          this.deQueuedUsers = res.json();
       }
      )
   };
@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
     status:""
   };
   fetchAssociate = function() {
-     this.http.get("https://pcap-amd.herokuapp.com/salesAssociate/9970011802").subscribe(
+     this.http.get("https://pcap-amd.herokuapp.com/salesAssociate/9970011801").subscribe(
       (res: Response) => {
           this.associate = res.json();
       }
@@ -48,7 +48,7 @@ export class UserComponent implements OnInit {
   };
 
   getToggleStatus = function() {
-     this.http.get("https://pcap-amd.herokuapp.com/salesAssociate/9970011802/toggle").subscribe(
+     this.http.get("https://pcap-amd.herokuapp.com/salesAssociate/9970011801/toggle").subscribe(
       (res: Response) => {
           this.toggleStatus.status = res["_body"];
       }
@@ -56,7 +56,7 @@ export class UserComponent implements OnInit {
   };
 
   updateToggleStatus = function() {
-     this.http.put("https://pcap-amd.herokuapp.com/salesAssociate/9970011802/toggle").subscribe(
+     this.http.put("https://pcap-amd.herokuapp.com/salesAssociate/9970011801/toggle").subscribe(
       (res: Response) => {
           this.toggleStatus = res["_body"];
       }
